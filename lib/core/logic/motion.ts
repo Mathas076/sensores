@@ -1,4 +1,4 @@
-import { SHAKE_THRESHOLD } from '../constants';
+import { SHAKE_THRESHOLD } from '../constants/thresholdConstant';
 
 // Definición del tipo de dato (X, Y, Z)
 type Vector3 = { x: number; y: number; z: number; };
