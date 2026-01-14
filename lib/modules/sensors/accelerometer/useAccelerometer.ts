@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Accelerometer } from 'expo-sensors'; // Asegúrate de tener la importación correcta
 import { SensorService } from './accelerometer.service';
 import { isShaking } from '@/lib/core/logic/motion';
 

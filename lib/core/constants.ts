@@ -1,1 +1,1 @@
-export const SHAKE_THRESHOLD = 1.78;
+export const SHAKE_THRESHOLD = 1.18;
