@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
-import { useAccelerometer } from '../lib/modules/sensors/accelerometer/useAccelerometer';
-import { getDice } from '@/lib/core/logic/random_dice';
+import { OrbitControls } from '@react-three/drei/core';
+import { Canvas } from '@react-three/fiber';
+import React from 'react';
+import { View } from 'react-native';
 
-export default function App() {
-  const { shaking } = useAccelerometer();
-  const [number, setNumber] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (shaking) {
-      // Cuando el hook avisa que se agita, la UI decide qué hacer
-      setNumber(getDice());
-    }
-  }, [shaking]); // Solo se ejecuta cuando cambia el estado de 'shaking'
-
+export default function Index() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 40 }}>{number ?? '¡Agítame!'}</Text>
-      {shaking && <Text>Detectando movimiento...</Text>}
+    <View style={{ flex: 1}}>
+      <Canvas
+      >
+        <OrbitControls></OrbitControls>
+      <mesh>
+        <boxGeometry args={[2, 2, 2]} />
+        <meshPhongMaterial />
+      </mesh>
+      <ambientLight intensity={0.1} />
+      <directionalLight position={[0, 0, 5]} color="red" />
+    </Canvas>
     </View>
   );
 }
